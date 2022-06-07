@@ -1,0 +1,141 @@
+:root {
+  --main-color: rgb(64, 224, 150);
+  --main-text-color: rgb(62, 224, 150);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.main {
+  background: rgb(27, 27, 27);
+}
+.container {
+  max-width: 1170px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.svg {
+  position: absolute;
+  top: 0;
+}
+.button {
+  padding: 6px 24px;
+  background: transparent;
+  color: white;
+  border: 1px solid rgb(252, 227, 0);
+  border-radius: 6px;
+  font-size: 24px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.button:hover {
+  background: rgb(37, 37, 37);
+}
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(27, 27, 27);
+  color: rgb(252, 227, 0);
+  height: 100vh;
+  width: 100%;
+  transition: all 1s ease-out;
+}
+.welcome.removing {
+  transform: translateX(-100%);
+}
+.welcome__title {
+  font-size: 64px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+.welcome__text {
+  font-size: 28px;
+  width: 500px;
+  text-align: center;
+}
+.welcome__button {
+  margin-top: 50px;
+}
+.songs {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 50px;
+}
+.song {
+  margin-top: 25px;
+  background: rgb(37, 37, 37);
+  border-radius: 8px;
+  border: 1px solid rgb(252, 227, 0);
+  color: white;
+}
+.song:hover .song__vinil{
+  transform: rotate(0deg);
+  transform: translateX(-50%);
+}
+.song:hover .song__album{
+  transform: translateX(20%);
+}
+.song__header {
+  position: relative;
+  width: 230px;
+  height: 230px;
+}
+.song__album {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
+}
+.song__album::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -6px;
+  width: 100%;
+  height: 100%;
+  background-image: url(./../images/shadow-album.png);
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.song__album img {
+  clip-path: url(#album-cover);
+  border: 4px solid #5c5c5c;
+  width: 230px;
+}
+.song__vinil {
+  position: absolute;
+  z-index: 0;
+  transform: rotate(60deg);
+  height: 225px;
+  width: 225px;
+  transition: all 0.5s ease-in-out;
+}
+.song__vinil img {
+  clip-path: url(#song-cover);
+  width: 230px;
+}
+.song-about {
+  margin-top: 25px;
+  padding-left: 10px;
+  padding-bottom: 25px;
+}
+.song-about__song-name {
+  font-size: 20px;
+  font-weight: bold;
+  word-wrap: break-word;
+  max-width: 220px;
+}
+.song-about__artist-name {
+  font-size: 20px;
+  word-wrap: break-word;
+  max-width: 220px;
+}

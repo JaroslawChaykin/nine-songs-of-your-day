@@ -7,7 +7,7 @@ export default function songBlock({song}) {
             ${song.album ? `<img src=${song.album.cover_art_url} alt=""></img>` : '<img src="./src/images/non-cover.jpg" alt=""></img>'}
             </div>
             <div class="song__vinil">
-                <img src="${song.header_image_thumbnail_url}" alt="">
+                <img src="${song.primary_artist.image_url}" alt="">
             </div>
         </div>
         <div class="song-about">

@@ -7,7 +7,7 @@ const options = {
 };
 
 class FetchService {
-  static async getSongs(id) {
+  static async getSong(id) {
     const response = await fetch(`https://genius.p.rapidapi.com/songs/${id}`, options)
 	  .then(response => response.json())
     return response;

@@ -1,5 +1,4 @@
 export default function songBlock({song}) {
-    console.log(song);
     return `
     <div class="song">
         <div class="song__header">

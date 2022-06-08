@@ -2,18 +2,35 @@ import FetchService from "./API/fetchService.js";
 import songBlock from "./template/songBlock.js";
 import getDay from './utils/getDay.js'
 import getRandomNum from './utils/getRandomNum.js'
+import localization from './localization/localization.js'
 
 let btn = document.querySelector('.button')
 let welcomeWrapper = document.querySelector('.welcome')
 let rootSongs = document.querySelector('.songs')
 let mainText = document.querySelector('.welcome__text')
+let mainTitle = document.querySelector('.title')
+let selectLocalization = document.querySelector('#localization')
 const songsFrom = JSON.parse(localStorage.getItem('songs'))
 
-if(getDay(Date.now()) <= getDay(songsFrom?.date)) {
-  btn.remove()
-  mainText.innerText = 'Твой плейлист на этот день уже сформирован'
-} else {
-  mainText.innerText = `Каждый день тебя будет ждать 9 песен, которые ты возможно уже слышал, а может и нет, но каждый раз это будут максимально разные песни. Определят ли они твоё настроение на день?`
+localizationPage()
+
+selectLocalization.addEventListener('change', (e) => {
+  localStorage.setItem('local', e.target.value)
+  localizationPage()
+});
+
+function localizationPage() {
+  const curentLocal = localStorage.getItem('local') || 'ru'
+  mainTitle.innerText = localization[curentLocal].title
+  selectLocalization.value = curentLocal
+  if(getDay(Date.now()) <= getDay(songsFrom?.date)) {
+    btn.remove()
+    mainText.innerText = localization[curentLocal].subtitleFormed
+  } else {
+    mainText.innerText = localization[curentLocal].subtitle
+  }
+
+  btn.innerText = localization[curentLocal].button
 }
 
 let objectToLocalStorage = {

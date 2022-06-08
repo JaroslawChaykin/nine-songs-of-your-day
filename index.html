@@ -5,25 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VsCode</title>
+    <title>9songs</title>
     <link rel="stylesheet" href="./src/css/main.css">
 </head>
 <body>
     <main class="main">
         <div class="welcome">
             <div class="welcome__title">
-                <span>9</span> песен твоего дня
+                <span>9</span>
+                <div class="title"></div>
             </div>
             <div class="welcome__text">
             </div>
             <div class="welcome__button">
-                <button class="button">Перейти</button>
+                <button class="button"></button>
             </div>
         </div>
         <div class="container">
             <div class="songs"></div>
         </div>
     </main>
+    <div class="current-localization">
+        <select name="localization" id="localization">
+            <option value="ru">ru</option>
+            <option value="en">en</option>
+        </select>
+    </div>
     <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="238" height="238" viewBox="0 0 238 238" fill="none">
         <clipPath id="album-cover">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M230 2C230 0.89543 229.105 0 228 0H2C0.89543 0 -3.5643e-07 0.895428 -7.9611e-07 2L-2.97215e-05 74.6667C-3.01611e-05 75.7712 0.896329 76.6612 1.99944 76.7179C22.241 77.758 38.3333 94.4997 38.3333 115C38.3333 135.5 22.241 152.242 1.99944 153.282C0.896327 153.339 -3.01611e-05 154.229 -2.97215e-05 155.333L-7.9611e-07 228C-3.56431e-07 229.105 0.895433 230 2 230H228C229.105 230 230 229.105 230 228V2Z" fill="#D9D9D9"/>

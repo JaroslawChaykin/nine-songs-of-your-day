@@ -3,6 +3,7 @@ import songBlock from "./template/songBlock.js";
 import getDay from './utils/getDay.js'
 import getRandomNum from './utils/getRandomNum.js'
 import localization from './localization/localization.js'
+import resetDay from './utils/resetDay.js'
 
 let btn = document.querySelector('.button')
 let welcomeWrapper = document.querySelector('.welcome')
@@ -23,7 +24,8 @@ function localizationPage() {
   const curentLocal = localStorage.getItem('local') || 'ru'
   mainTitle.innerText = localization[curentLocal].title
   selectLocalization.value = curentLocal
-  if(getDay(Date.now()) <= getDay(songsFrom?.date)) {
+
+  if(getDay(resetDay(Date.now())) <= getDay(songsFrom?.date)) {
     btn.remove()
     mainText.innerText = localization[curentLocal].subtitleFormed
   } else {
